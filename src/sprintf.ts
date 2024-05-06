@@ -1,8 +1,8 @@
+import tSprintf from "@tannin/sprintf";
 /**
  * External dependencies
  */
 import memoize from "memize";
-import * as sprintfjs from "sprintf-js";
 
 /**
  * Log to console, once per message; or more precisely, per referentially equal
@@ -24,9 +24,11 @@ const logErrorOnce = memoize(console.error); // eslint-disable-line no-console
  *
  * @return {string} The formatted string.
  */
-export function sprintf(format: string, ...args: any[]): string {
+export function sprintf(format: string, ...args: (string | string[] | {
+    [x: string]: string;
+})[]): string {
 	try {
-		return sprintfjs.sprintf(format, ...args);
+		return tSprintf(format, ...args);
 	} catch (error) {
 		if (error instanceof Error) {
 			logErrorOnce(`sprintf error: \n\n${error.toString()}`);

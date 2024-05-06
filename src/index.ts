@@ -9,7 +9,7 @@ export { sprintf } from "./sprintf.js";
 /**
  * WordPress dependencies
  */
-const I18n = createI18n();
+const I18n = new createI18n();
 export const getLocaleData = I18n.getLocaleData;
 export const setLocaleData = I18n.setLocaleData;
 export const addLocaleData = I18n.addLocaleData;

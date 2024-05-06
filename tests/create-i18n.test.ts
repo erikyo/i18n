@@ -42,17 +42,17 @@ const additionalLocaleData = {
 	"%d cat": ["%d chat", "%d chats"],
 };
 
-const createTestLocale = () => createI18n(localeData, "test_domain");
+const createTestLocale = () => new createI18n(localeData, "test_domain");
 
-describe("createI18n", () => {
+describe("new createI18n", () => {
 	test("instantiated with locale data", () => {
-		const straya = createI18n(strayaLocale);
+		const straya = new createI18n(strayaLocale);
 		expect(straya.__("hello")).toEqual("gday");
 	});
 
 	test("multiple instances maintain their own distinct locale data", () => {
-		const straya = createI18n();
-		const french = createI18n();
+		const straya = new createI18n();
+		const french = new createI18n();
 
 		straya.setLocaleData(strayaLocale);
 		french.setLocaleData(frenchLocale);
@@ -120,19 +120,19 @@ describe("createI18n", () => {
 		};
 
 		it("is false for non-rtl", () => {
-			const locale = createI18n();
+			const locale = new createI18n();
 			expect(locale.isRTL()).toBe(false);
 		});
 
 		it("is true for rtl", () => {
-			const locale = createI18n(ARLocaleData);
+			const locale = new createI18n(ARLocaleData);
 			expect(locale.isRTL()).toBe(true);
 		});
 	});
 
 	describe("setLocaleData", () => {
 		const createTestLocaleWithAdditionalData = () => {
-			const locale = createI18n(localeData, "test_domain");
+			const locale = new createI18n(localeData, "test_domain");
 			locale.setLocaleData(additionalLocaleData, "test_domain");
 			return locale;
 		};
@@ -215,7 +215,7 @@ describe("createI18n", () => {
 
 	describe("addLocaleData", () => {
 		const createTestLocaleWithAdditionalData = () => {
-			const locale = createI18n(localeData, "test_domain");
+			const locale = new createI18n(localeData, "test_domain");
 			locale.addLocaleData(additionalLocaleData, "test_domain");
 			return locale;
 		};
@@ -317,7 +317,7 @@ describe("createI18n", () => {
 		});
 
 		it("reset the plural forms function cache", () => {
-			const locale = createI18n({}, "test_domain");
+			const locale = new createI18n({}, "test_domain");
 
 			// Call `_n` to get the plural forms function cached.
 			locale._n("singular", "plural", 1, "test_domain");
@@ -466,7 +466,7 @@ describe("i18n filters", () => {
 
 	test("__() calls filters", () => {
 		const hooks = createHooksWithI18nFilters();
-		const i18n = createI18n(undefined, undefined, hooks);
+		const i18n = new createI18n(undefined, undefined, hooks);
 
 		expect(i18n.__("hello")).toEqual("hello/i18n.gettext/i18n.gettext_default");
 		expect(i18n.__("hello", "domain")).toEqual(
@@ -476,7 +476,7 @@ describe("i18n filters", () => {
 
 	test("_x() calls filters", () => {
 		const hooks = createHooksWithI18nFilters();
-		const i18n = createI18n(undefined, undefined, hooks);
+		const i18n = new createI18n(undefined, undefined, hooks);
 
 		expect(i18n._x("hello", "ctx")).toEqual(
 			"hello/i18n.gettext_with_ctx/i18n.gettext_with_ctx_default",
@@ -488,7 +488,7 @@ describe("i18n filters", () => {
 
 	test("_n() calls filters", () => {
 		const hooks = createHooksWithI18nFilters();
-		const i18n = createI18n(undefined, undefined, hooks);
+		const i18n = new createI18n(undefined, undefined, hooks);
 
 		expect(i18n._n("hello", "hellos", 1)).toEqual(
 			"hello/i18n.ngettext/i18n.ngettext_default",
@@ -506,7 +506,7 @@ describe("i18n filters", () => {
 
 	test("_nx() calls filters", () => {
 		const hooks = createHooksWithI18nFilters();
-		const i18n = createI18n(undefined, undefined, hooks);
+		const i18n = new createI18n(undefined, undefined, hooks);
 
 		expect(i18n._nx("hello", "hellos", 1, "ctx")).toEqual(
 			"hello/i18n.ngettext_with_ctx/i18n.ngettext_with_ctx_default",
@@ -524,7 +524,7 @@ describe("i18n filters", () => {
 
 	test("hasTranslation() calls filters", () => {
 		const hooks = createHooksWithI18nFilters();
-		const { hasTranslation } = createI18n(frenchLocale, undefined, hooks);
+		const { hasTranslation } = new createI18n(frenchLocale, undefined, hooks);
 
 		expect(hasTranslation("hello")).toBe(true);
 		expect(hasTranslation("hello", "not a greeting")).toBe(false);

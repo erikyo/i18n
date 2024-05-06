@@ -12,9 +12,9 @@ import { describe, expect, it } from "vitest";
 describe("i18n updates", () => {
 	it("updates on setLocaleData", () => {
 		const hooks = createHooks();
-		const i18n = createI18n(undefined, undefined, hooks);
+		const i18n = new createI18n(undefined, undefined, hooks);
 
-		const doneTranslations: any[] = [];
+		const doneTranslations: unknown[] = [];
 
 		function doTranslation() {
 			doneTranslations.push(i18n.__("original"));
@@ -33,6 +33,7 @@ describe("i18n updates", () => {
 		// Add a filter and then remove it.
 		const filter = (text: string) => `[${text}]`;
 		hooks.addFilter("i18n.gettext", "test", filter);
+		// @ts-ignore
 		hooks.removeFilter("i18n.gettext", "test", filter);
 
 		expect(doneTranslations).toEqual([
