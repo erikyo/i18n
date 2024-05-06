@@ -223,7 +223,7 @@ const createI18n = (
 		) as string;
 
 		return hooks.applyFilters(
-			"i18n.gettext_" + getFilterDomain(domain),
+			`i18n.gettext_${getFilterDomain(domain)}`,
 			translation,
 			text,
 			domain,
@@ -259,7 +259,7 @@ const createI18n = (
 			domain,
 		) as string;
 		return hooks.applyFilters(
-			"i18n.gettext_with_context_" + getFilterDomain(domain),
+			`i18n.gettext_with_context_${getFilterDomain(domain)}`,
 			translation,
 			text,
 			context,
@@ -355,7 +355,7 @@ const createI18n = (
 		) as string;
 
 		return hooks.applyFilters(
-			"i18n.ngettext_with_context_" + getFilterDomain(domain),
+			`i18n.ngettext_with_context_${getFilterDomain(domain)}`,
 			translation,
 			single,
 			plural,

@@ -380,59 +380,59 @@ describe("i18n filters", () => {
 		hooks.addFilter(
 			"i18n.gettext",
 			"test",
-			(translation) => translation + "/i18n.gettext",
+			(translation) => `${translation}/i18n.gettext`,
 		);
 		hooks.addFilter(
 			"i18n.gettext_default",
 			"test",
-			(translation) => translation + "/i18n.gettext_default",
+			(translation) => `${translation}/i18n.gettext_default`,
 		);
 		hooks.addFilter(
 			"i18n.gettext_domain",
 			"test",
-			(translation) => translation + "/i18n.gettext_domain",
+			(translation) => `${translation}/i18n.gettext_domain`,
 		);
 
 		hooks.addFilter(
 			"i18n.ngettext",
 			"test",
-			(translation) => translation + "/i18n.ngettext",
+			(translation) => `${translation}/i18n.ngettext`,
 		);
 		hooks.addFilter(
 			"i18n.ngettext_default",
 			"test",
-			(translation) => translation + "/i18n.ngettext_default",
+			(translation) => `${translation}/i18n.ngettext_default`,
 		);
 		hooks.addFilter(
 			"i18n.ngettext_domain",
 			"test",
-			(translation) => translation + "/i18n.ngettext_domain",
+			(translation) => `${translation}/i18n.ngettext_domain`,
 		);
 
 		hooks.addFilter(
 			"i18n.gettext_with_context",
 			"test",
 			(translation, text, context) =>
-				translation + `/i18n.gettext_with_${context}`,
+				`${translation}/i18n.gettext_with_${context}`,
 		);
 		hooks.addFilter(
 			"i18n.gettext_with_context_default",
 			"test",
 			(translation, text, context) =>
-				translation + `/i18n.gettext_with_${context}_default`,
+				`${translation}/i18n.gettext_with_${context}_default`,
 		);
 		hooks.addFilter(
 			"i18n.gettext_with_context_domain",
 			"test",
 			(translation, text, context) =>
-				translation + `/i18n.gettext_with_${context}_domain`,
+				`${translation}/i18n.gettext_with_${context}_domain`,
 		);
 
 		hooks.addFilter(
 			"i18n.ngettext_with_context",
 			"test",
 			(translation, single, plural, number, context) =>
-				translation + `/i18n.ngettext_with_${context}`,
+				`${translation}/i18n.ngettext_with_${context}`,
 		);
 		hooks.addFilter(
 			"i18n.ngettext_with_context_default",

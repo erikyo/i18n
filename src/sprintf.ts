@@ -2,7 +2,7 @@
  * External dependencies
  */
 import memoize from "memize";
-import sprintfjs from "sprintf-js";
+import * as sprintfjs from "sprintf-js";
 
 /**
  * Log to console, once per message; or more precisely, per referentially equal
@@ -29,7 +29,7 @@ export function sprintf(format: string, ...args: any[]): string {
 		return sprintfjs.sprintf(format, ...args);
 	} catch (error) {
 		if (error instanceof Error) {
-			logErrorOnce("sprintf error: \n\n" + error.toString());
+			logErrorOnce(`sprintf error: \n\n${error.toString()}`);
 		}
 		return format;
 	}

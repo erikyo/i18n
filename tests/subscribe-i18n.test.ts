@@ -31,7 +31,7 @@ describe("i18n updates", () => {
 		});
 
 		// Add a filter and then remove it.
-		const filter = (text: string) => "[" + text + "]";
+		const filter = (text: string) => `[${text}]`;
 		hooks.addFilter("i18n.gettext", "test", filter);
 		hooks.removeFilter("i18n.gettext", "test", filter);
 

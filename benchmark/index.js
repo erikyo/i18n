@@ -23,8 +23,7 @@ b.suite(
 
 		b.cycle(),
 		b.complete(),
-		b.save({ file: 'reduce', version: '1.0.0' }),
-		b.save({ file: 'reduce', format: 'chart.html' }),
+		b.save({ file: 'i18n-__', version: '1.0.0' }),
 	)
 
 
