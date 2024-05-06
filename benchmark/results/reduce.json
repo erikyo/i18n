@@ -1,0 +1,27 @@
+{
+  "name": "Example",
+  "date": "2024-05-06T11:12:01.968Z",
+  "version": "1.0.0",
+  "results": [
+    {
+      "name": "OLD",
+      "ops": 1402247,
+      "margin": 1.71,
+      "percentSlower": 4.41
+    },
+    {
+      "name": "NEW",
+      "ops": 1466997,
+      "margin": 0.51,
+      "percentSlower": 0
+    }
+  ],
+  "fastest": {
+    "name": "NEW",
+    "index": 1
+  },
+  "slowest": {
+    "name": "OLD",
+    "index": 0
+  }
+}

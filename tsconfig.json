@@ -1,0 +1,18 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig.json",
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"rootDir": "src",
+		"declaration": true,
+		"outDir": "build",
+		"allowJs": true,
+		"pretty": true,
+		"checkJs": true,
+		"skipLibCheck": true,
+		"strict": true
+	},
+	"include": ["src/**/*", "test/**/*"],
+}
