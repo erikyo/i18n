@@ -5,41 +5,41 @@
 /**
  * WordPress dependencies
  */
-import {createHooks} from "@wordpress/hooks";
-import {describe, expect, it} from "vitest";
+import { createHooks } from "@wordpress/hooks";
+import { describe, expect, it } from "vitest";
 import createI18n from "../src/i18n.js";
 
 describe("i18n updates", () => {
 	it("updates on setLocaleData", () => {
-        const hooks = createHooks();
-        const i18n = new createI18n( undefined, undefined, hooks );
+		const hooks = createHooks();
+		const i18n = new createI18n(undefined, undefined, hooks);
 
-        const doneTranslations = [];
+		const doneTranslations = [];
 
-        function doTranslation() {
-            doneTranslations.push( i18n.__( 'original' ) );
-        }
+		function doTranslation() {
+			doneTranslations.push(i18n.__("original"));
+		}
 
-        i18n.subscribe( doTranslation );
+		i18n.subscribe(doTranslation);
 
-        // Do translation on empty instance with no translation data.
-        doTranslation();
+		// Do translation on empty instance with no translation data.
+		doTranslation();
 
-        // Set translation data.
-        i18n.setLocaleData( {
-            original: [ 'translated' ],
-        });
+		// Set translation data.
+		i18n.setLocaleData({
+			original: ["translated"],
+		});
 
-        // Add a filter and then remove it.
-        const filter = ( text ) => `[${text}]`;
-        hooks.addFilter( 'i18n.gettext', 'test', filter );
-        hooks.removeFilter( 'i18n.gettext', 'test', filter );
+		// Add a filter and then remove it.
+		const filter = (text) => `[${text}]`;
+		hooks.addFilter("i18n.gettext", "test", filter);
+		hooks.removeFilter("i18n.gettext", "test", filter);
 
-        expect( doneTranslations ).toEqual( [
-            'original', // No translations before setLocaleData.
-            'translated', // After setLocaleData.
-            '[translated]', // After addFilter.
-            'translated', // After removeFilter.
-        ] );
+		expect(doneTranslations).toEqual([
+			"original", // No translations before setLocaleData.
+			"translated", // After setLocaleData.
+			"[translated]", // After addFilter.
+			"translated", // After removeFilter.
+		]);
 	});
 });
