@@ -1,12 +1,24 @@
-import {TanninDomainMetadata} from "tannin";
+import type { TanninDomainMetadata } from "tannin";
 
 /**
- * Translations in Jed-formatted JSON object shape.
+ * Generic Translations in Jed-formatted JSON object shape.
  */
 export type LocaleData = Record<string, unknown>;
+/**
+ * a Jed-formatted JSON header shape.
+ */
+export type HeaderData = Record<
+	string,
+	TanninDomainMetadata | [string, string]
+>;
+/**
+ * a Jed-formatted JSON translation shape.
+ */
+export type LocaleRow = Record<
+	string,
+	string[] | Record<string, string | string[]>
+>;
 
-export type HeaderData = Record<string, TanninDomainMetadata | [string, string] >
-export type LocaleRow = Record<string, string[] | Record<string, string|string[]>>
 /**
  * Callback function for subscription.
  */

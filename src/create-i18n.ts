@@ -1,4 +1,4 @@
-import {TanninLocaleDomain} from "tannin";
+import type { TanninLocaleDomain } from "tannin";
 
 /**
  * Default locale data to use for Tannin domain when not otherwise provided.

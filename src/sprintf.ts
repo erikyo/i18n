@@ -13,11 +13,7 @@ import tSprintf from "@tannin/sprintf";
  */
 export function sprintf(
 	format: string,
-	...args: (
-		| string
-		| string[]
-		| { [x: string]: string; }
-	)[]
+	...args: (string | string[] | { [x: string]: string })[]
 ): string {
 	try {
 		return tSprintf(format, ...args);
