@@ -11,12 +11,10 @@
       "moduleResolution": "Node",
       "allowJs": true,
       "checkJs": true,
-      "jsx": "react-jsx",
-      "jsxImportSource": "react",
       "baseUrl": "./src",
-      "noEmit": false,
       "declaration": true,
       "outDir": "./lib"
     },
 	"include": ["src/**/*", "test/**/*"],
+    "exclude": ["tools/**/*"]
 }
