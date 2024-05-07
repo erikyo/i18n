@@ -6,7 +6,7 @@ import b from "benny";
 /**
  * Internal dependencies
  */
-import NEW from "../build/index.js";
+import { __ } from "../lib/index.js";
 
 import OLD from "@wordpress/i18n";
 
@@ -18,7 +18,7 @@ b.suite(
 	}),
 
 		b.add('NEW', () => {
-			NEW.__( 'Translate' );
+     __( 'Translate' );
 		}),
 
 		b.cycle(),

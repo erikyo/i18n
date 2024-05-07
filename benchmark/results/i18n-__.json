@@ -1,18 +1,18 @@
 {
   "name": "Example",
-  "date": "2024-05-06T11:57:28.136Z",
+  "date": "2024-05-07T01:35:28.001Z",
   "version": "1.0.0",
   "results": [
     {
       "name": "OLD",
-      "ops": 1443462,
-      "margin": 0.53,
-      "percentSlower": 1.11
+      "ops": 1094975,
+      "margin": 10.26,
+      "percentSlower": 19.32
     },
     {
       "name": "NEW",
-      "ops": 1459704,
-      "margin": 0.39,
+      "ops": 1357152,
+      "margin": 6.38,
       "percentSlower": 0
     }
   ],

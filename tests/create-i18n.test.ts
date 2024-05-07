@@ -1,13 +1,13 @@
 /**
  * WordPress dependencies
  */
-import { createHooks } from "@wordpress/hooks";
-import { describe, expect, it, test } from "vitest";
+import {createHooks} from "@wordpress/hooks";
+import {describe, expect, it, test} from "vitest";
 
 /**
  * Internal dependencies
  */
-import createI18n from "../src/create-i18n";
+import createI18n from "../src/i18n";
 
 const strayaLocale = {
 	hello: ["gday"],
@@ -39,7 +39,7 @@ const localeData = {
 
 const additionalLocaleData = {
 	cheeseburger: ["hamburger au fromage"],
-	"%d cat": ["%d chat", "%d chats"],
+	"%d cat": ["%d chat", "%d chats"]
 };
 
 const createTestLocale = () => new createI18n(localeData, "test_domain");
@@ -156,23 +156,23 @@ describe("new createI18n", () => {
 		});
 
 		it("overwrites domain configuration", () => {
-			const locale = createTestLocaleWithAdditionalData();
-			const domain = "test_domain";
-			const domainConfiguration = {
-				additionalData: "This is setLocaleData",
-			};
-			locale.setLocaleData(
-				{
-					"": domainConfiguration,
-				},
-				domain,
-			);
+            const locale = createTestLocaleWithAdditionalData();
+            const domain = 'test_domain';
+            const domainConfiguration = {
+                additionalData: 'This is addLocaleData',
+            };
+            locale.addLocaleData(
+                {
+                    '': domainConfiguration,
+                },
+                domain
+            );
 
-			expect(locale.getLocaleData(domain)[""].domain).toBeUndefined();
-			expect(locale.getLocaleData(domain)[""].lang).toBeUndefined();
-			expect(locale.getLocaleData(domain)[""].additionalData).toBe(
-				domainConfiguration.additionalData,
-			);
+            expect( locale.getLocaleData( domain )[ '' ].domain ).toBe(domain);
+            expect( locale.getLocaleData( domain )[ '' ].lang ).toBe( 'fr' );
+            expect( locale.getLocaleData( domain )[ '' ].additionalData ).toBe(
+                domainConfiguration.additionalData
+            );
 		});
 
 		describe("__", () => {
@@ -228,7 +228,6 @@ describe("new createI18n", () => {
 						domain: "test_domain2",
 						lang: "fr",
 					},
-
 					"%d banana": ["%d banane", "%d bananes"],
 				},
 				"test_domain2",

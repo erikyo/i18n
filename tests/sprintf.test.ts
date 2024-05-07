@@ -14,7 +14,8 @@ describe("i18n", () => {
 			// eslint-disable-next-line @wordpress/valid-sprintf
 			const result = sprintf("Hello %(placeholder-not-provided)s");
 
-			expect(consoleMock).not.toHaveBeenCalledOnce();
+			expect(consoleMock).not.toThrowError();
+			expect(consoleMock).toHaveBeenCalledOnce();
 			expect(result).toBe("Hello %(placeholder-not-provided)s");
 		});
 
