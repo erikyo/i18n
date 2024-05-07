@@ -1,0 +1,15 @@
+{
+  "name": "benchmark",
+  "version": "1.0.0",
+  "description": "performance benchmark for i18n-next",
+  "main": "./index.mjs",
+  "type": "module",
+  "scripts": {
+    "bench": "node --experimental-vm-modules ./index.mjs"
+  },
+  "dependencies": {
+    "i18n-next": "..",
+    "@wordpress/i18n": "^4.57.0",
+    "benny": "^3.7.1"
+  }
+}

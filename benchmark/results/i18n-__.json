@@ -1,18 +1,18 @@
 {
-  "name": "Example",
-  "date": "2024-05-07T01:35:28.001Z",
+  "name": "i18n Testing __ and sprintf",
+  "date": "2024-05-07T21:40:05.376Z",
   "version": "1.0.0",
   "results": [
     {
       "name": "OLD",
-      "ops": 1094975,
-      "margin": 10.26,
-      "percentSlower": 19.32
+      "ops": 1410739,
+      "margin": 0.43,
+      "percentSlower": 0.68
     },
     {
       "name": "NEW",
-      "ops": 1357152,
-      "margin": 6.38,
+      "ops": 1420351,
+      "margin": 0.39,
       "percentSlower": 0
     }
   ],
