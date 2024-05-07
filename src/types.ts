@@ -1,8 +1,12 @@
-/**
- * Locale data in Jed-formatted JSON object shape.
- */
-export type LocaleData = Record<string, any>;
+import {TanninDomainMetadata} from "tannin";
 
+/**
+ * Translations in Jed-formatted JSON object shape.
+ */
+export type LocaleData = Record<string, unknown>;
+
+export type HeaderData = Record<string, TanninDomainMetadata | [string, string] >
+export type LocaleRow = Record<string, string[] | Record<string, string|string[]>>
 /**
  * Callback function for subscription.
  */
@@ -19,10 +23,3 @@ export type UnsubscribeCallback = () => void;
  * @returns Unsubscribe callback function.
  */
 export type Subscribe = (callback: SubscribeCallback) => UnsubscribeCallback;
-
-/**
- * Retrieves the domain to use when calling domain-specific filters.
- * @param domain Optional domain parameter.
- * @returns Domain string.
- */
-export type GetFilterDomain = (domain?: string) => string;

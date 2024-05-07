@@ -1,17 +1,4 @@
 import tSprintf from "@tannin/sprintf";
-/**
- * External dependencies
- */
-import memoize from "memize";
-
-/**
- * Log to console, once per message; or more precisely, per referentially equal
- * argument set. Because Jed throws errors, we log these to the console instead
- * to avoid crashing the application.
- *
- * @param args Arguments to pass to `console.error`
- */
-const logErrorOnce = memoize(console.error); // eslint-disable-line no-console
 
 /**
  * Returns a formatted string. If an error occurs in applying the format, the
@@ -24,15 +11,17 @@ const logErrorOnce = memoize(console.error); // eslint-disable-line no-console
  *
  * @return {string} The formatted string.
  */
-export function sprintf(format: string, ...args: (string | string[] | {
-    [x: string]: string;
-})[]): string {
+export function sprintf(
+	format: string,
+	...args: (
+		| string
+		| string[]
+		| { [x: string]: string; }
+	)[]
+): string {
 	try {
 		return tSprintf(format, ...args);
 	} catch (error) {
-		if (error instanceof Error) {
-			logErrorOnce(`sprintf error: \n\n${error.toString()}`);
-		}
 		return format;
 	}
 }
