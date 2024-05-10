@@ -108,10 +108,15 @@ function convertTranslationToPHP(
  * @return This function does not return a value.
  */
 export function convertPOTToPHP(
-    potFile: string | number,
-    phpFile: string | number,
+    potFile: string,
+    phpFile: string,
     options: { textdomain: string },
 ): void {
+    if (typeof potFile !== "string") {
+        throw new Error("potFile must be a string");
+    } else if (typeof phpFile !== "string") {
+        throw new Error("phpFile name must be a string");
+    }
     const poContents = readFileSync(potFile);
     const parsedPO = po.parse(poContents);
 
