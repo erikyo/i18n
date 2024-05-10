@@ -21,14 +21,12 @@ describe("i18n", () => {
 
         it("replaces placeholders", () => {
             const result = sprintf("bonjour %s", "erik");
-            expect(result).toBe("bonjour Riad");
+            expect(result).toBe("bonjour erik");
         });
 
         it("replaces named placeholders", () => {
             const result = sprintf("bonjour %(names)s", { names: "erik" });
-
-
-            expect(result).toBe("bonjour Riad");
+            expect(result).toBe("bonjour erik");
         });
     });
 });

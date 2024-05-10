@@ -9,14 +9,14 @@ type Specifiers = {
 type S = keyof Specifiers;
 
 type ExtractNamedPlaceholders<T extends string> =
-    T extends `${infer Start}%(${infer Key})${infer Spec}${infer Rest}`
+    T extends `${any}%(${infer Key})${infer Spec}${infer Rest}`
         ? Spec extends S
             ? { [K in Key]: Specifiers[Spec]} & ExtractNamedPlaceholders<Rest>
             : never
         : {};
 
 type ExtractUnnamedPlaceholders<T extends string> =
-    T extends `${infer Start}%${infer Spec}${infer Rest}`
+    T extends `${any}%${infer Spec}${infer Rest}`
         ? Spec extends S
             ? [Specifiers[Spec], ...ExtractUnnamedPlaceholders<Rest>]
             : never
