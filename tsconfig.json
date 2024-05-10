@@ -6,8 +6,8 @@
         "DOM.Iterable",
         "ES2022"
       ],
-      "target": "ES2022",
-      "module": "ES2022",
+      "target": "ES2015",
+      "module": "ES2015",
       "moduleResolution": "Node",
       "allowJs": true,
       "checkJs": true,
